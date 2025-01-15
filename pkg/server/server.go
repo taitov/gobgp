@@ -921,7 +921,6 @@ func (s *BgpServer) toConfig(peer *peer, getAdvertised bool) *oc.Neighbor {
 		conf.State.RemoteRouterId = peer.fsm.peerInfo.ID.To4().String()
 		peer.fsm.lock.RUnlock()
 	}
-
 	return &conf
 }
 

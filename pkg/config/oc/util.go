@@ -611,14 +611,15 @@ func NewPeerGroupFromConfigStruct(pconf *PeerGroup) *api.PeerGroup {
 	return &api.PeerGroup{
 		ApplyPolicy: newApplyPolicyFromConfigStruct(&pconf.ApplyPolicy),
 		Conf: &api.PeerGroupConf{
-			PeerAsn:             pconf.Config.PeerAs,
-			LocalAsn:            pconf.Config.LocalAs,
-			Type:                api.PeerType(pconf.Config.PeerType.ToInt()),
-			AuthPassword:        pconf.Config.AuthPassword,
-			RouteFlapDamping:    pconf.Config.RouteFlapDamping,
-			Description:         pconf.Config.Description,
-			PeerGroupName:       pconf.Config.PeerGroupName,
-			SendSoftwareVersion: pconf.Config.SendSoftwareVersion,
+			PeerAsn:                pconf.Config.PeerAs,
+			LocalAsn:               pconf.Config.LocalAs,
+			Type:                   api.PeerType(pconf.Config.PeerType.ToInt()),
+			AuthPassword:           pconf.Config.AuthPassword,
+			RouteFlapDamping:       pconf.Config.RouteFlapDamping,
+			Description:            pconf.Config.Description,
+			PeerGroupName:          pconf.Config.PeerGroupName,
+			SendSoftwareVersion:    pconf.Config.SendSoftwareVersion,
+			IncomingChannelTimeout: pconf.Config.IncomingChannelTimeout,
 			IncomingChannel: &api.ChannelConfig{
 				Type: api.ChannelType(pconf.Config.IncomingChannel.ChannelType.ToInt()),
 				Size: pconf.Config.IncomingChannel.Size,
