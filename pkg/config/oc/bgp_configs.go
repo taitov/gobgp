@@ -3308,6 +3308,9 @@ type NeighborConfig struct {
 	// original -> bgp:neighbor-address
 	// bgp:neighbor-address's original type is inet:ip-address.
 	// Address of the BGP peer, either in IPv4 or IPv6.
+	SendSoftwareVersion bool `mapstructure:"send-software-version" json:"send-software-version,omitempty"`
+	// original -> gobgp:incoming-channel-timeout
+	// Timeout for push message to input channel in seconds.
 	NeighborAddress string `mapstructure:"neighbor-address" json:"neighbor-address,omitempty"`
 	// original -> gobgp:admin-down
 	// gobgp:admin-down's original type is boolean.
@@ -3319,9 +3322,6 @@ type NeighborConfig struct {
 	Vrf string `mapstructure:"vrf" json:"vrf,omitempty"`
 	// original -> gobgp:send-software-version
 	// gobgp:send-software-version's original type is boolean.
-	SendSoftwareVersion bool `mapstructure:"send-software-version" json:"send-software-version,omitempty"`
-	// original -> gobgp:incoming-channel-timeout
-	// Timeout for push message to input channel in seconds.
 	IncomingChannelTimeout uint32 `mapstructure:"incoming-channel-timeout" json:"incoming-channel-timeout,omitempty"`
 	// original -> gobgp:incoming-channel
 	IncomingChannel IncomingChannel `mapstructure:"incoming-channel" json:"incoming-channel,omitempty"`
