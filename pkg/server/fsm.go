@@ -1784,8 +1784,10 @@ func (h *fsmHandler) sendMessageloop(ctx context.Context, wg *sync.WaitGroup) er
 				options := h.fsm.marshallingOptions
 				h.fsm.lock.RUnlock()
 				for _, msg := range table.CreateUpdateMsgFromPaths(m.Paths, options) {
-					if err := send(msg); err != nil {
-						return nil
+					for i := 0; i < 100; i++ {
+						if err := send(msg); err != nil {
+							return nil
+						}
 					}
 				}
 				if m.Notification != nil {
